@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<?php
+$first_num = $_POST['first_num'];
+$second_num = $_POST['second_num'];
+$operator = $_POST['operator'];
+$result = '';
+if (is_numeric($first_num) &&
+is_numeric($second_num)){
+    switch ($operator){
+        case "add";
+        $result = $first_num + $second_num;
+        break;
+        case "subtract";
+        $result = $first_num - $second_num;
+        break;
+        case "multiply";
+        $result = $first_num * $second_num;
+        break;
+        case "divide";
+        $result = $first_num / $second_num;
+        break;
+    }
+}
+?>
+
+<div id="page-wrap">
+    <h1>calc</h1>
+    <form action="" method="post" id="quiz-form">
+        <p>first number</p>
+        <input type="number" name="first_num" id="first_num" required="required" value="<?php echo $first_num;?>">
+        <p>second number</p>
+        <input type="number" name="second_num" id="second_num" required="required" value="<?php echo $second_num;?>">
+        <p>result</p>
+        <input readonly="readonly" name="result" value="<?php echo $result; ?>"><br><br>
+        <input type="submit" name="operator" value="add">
+        <input type="submit" name="operator" value="subtract">
+        <input type="submit" name="operator" value="multiply">
+        <input type="submit" name="operator" value="divide">
+
+
+    </form>
+</div>
+
+</body>
+</html>
